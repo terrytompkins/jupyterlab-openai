@@ -7,9 +7,17 @@ LABEL maintainer="ttompkins@mindovermodel.com"
 # Set working directory in the container
 WORKDIR /home/jovyan
 
-# Update system packages
+# Use root for installing system packages
 USER root
+
+# Update system packages
 RUN apt-get update && apt-get -y upgrade
+
+# Install git
+RUN apt-get install -y git
+
+# Clone the langchain tutorial repository
+RUN git clone https://github.com/gkamradt/langchain-tutorials.git
 
 # Install python and pip
 RUN apt-get install -y python3-pip
