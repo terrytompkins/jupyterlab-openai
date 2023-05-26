@@ -11,7 +11,7 @@ WORKDIR /home/jovyan
 USER root
 
 # Update system packages
-RUN apt-get update && apt-get -y upgrade
+RUN apt-get clean && apt-get update && apt-get -y upgrade
 
 # Install git
 RUN apt-get install -y git
